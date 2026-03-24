@@ -15,6 +15,7 @@ func TestDetectVerifyCmds_NxProject(t *testing.T) {
 	os.WriteFile(filepath.Join(dir, "nx.json"), []byte(nx), 0644)
 	pkg := `{"name":"my-app"}`
 	os.WriteFile(filepath.Join(dir, "package.json"), []byte(pkg), 0644)
+	os.WriteFile(filepath.Join(dir, "pnpm-lock.yaml"), []byte(""), 0644)
 	cmds := detectors.DetectVerifyCmds(dir)
 	assert.Contains(t, cmds, "pnpm nx run <project>:check:types")
 	assert.Contains(t, cmds, "pnpm nx run <project>:lint")

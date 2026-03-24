@@ -19,9 +19,6 @@ func detectPackageManager(dir string) string {
 	if _, err := os.Stat(filepath.Join(dir, "yarn.lock")); err == nil {
 		return "yarn"
 	}
-	if _, err := os.Stat(filepath.Join(dir, "nx.json")); err == nil {
-		return "pnpm"
-	}
 	return "npm"
 }
 
