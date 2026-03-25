@@ -6,7 +6,7 @@ Reusable AI agent kernel for Claude Code. Consume as a git submodule — project
 
 ```bash
 # Install CLI (once)
-curl -fsSL https://raw.githubusercontent.com/eugene-lai/ai-kernel/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/eugenelai-elmo/ai-kernel/main/install.sh | sh
 
 # Add to a project
 cd ~/Projects/my-repo

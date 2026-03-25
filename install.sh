@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-REPO="eugene-lai/ai-kernel"
+REPO="eugenelai-elmo/ai-kernel"
 INSTALL_DIR="/usr/local/bin"
 
 OS="$(uname -s | tr '[:upper:]' '[:lower:]')"

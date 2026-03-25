@@ -20,7 +20,7 @@ func init() {
 	rootCmd.AddCommand(initCmd)
 }
 
-const baseRepoURL = "https://github.com/eugene-lai/ai-kernel"
+const baseRepoURL = "https://github.com/eugenelai-elmo/ai-kernel"
 
 func runInit(cmd *cobra.Command, args []string) error {
 	dir, _ := os.Getwd()
