@@ -1,11 +1,25 @@
 <!-- loops/execution.md -->
 # Execution Loop
 
-Technical task execution. Read project overlay at `.ai/loops/execution.md` for:
-- Verify commands
-- Test runner
-- Branch naming conventions
-- Project-specific domain rules
+## New Task? Start Here
+
+1. Has the user given you an issue ID or task description?
+   - If yes → go to Phase 1: Understand
+   - If no → ask: "What would you like to work on?"
+
+2. Is there already a `plan.md` in `.ai/artifacts/active/<ID>/`?
+   - If yes → skip to Phase 2: Build
+   - If no → start at Phase 1: Understand
+
+3. Read the project overlay at `.ai/loops/execution.md` for:
+   - Verify commands
+   - Test runner
+   - Branch naming
+   - Project-specific rules
+
+Then follow the phase checklists below.
+
+---
 
 ## State Management
 

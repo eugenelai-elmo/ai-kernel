@@ -1,33 +1,36 @@
 <!-- substrate/memory.md -->
 # Memory Protocol
 
-## Decision Recording
+## At Session Start
 
-When making a non-obvious decision (architecture choice, library selection, pattern override, tradeoff), record it immediately:
+1. Check `~/.claude/handoff/session-handoff.md` — if it exists for this repo, READ it first
+2. Run `mcp__serena__list_memories` — scan for relevant memories and read them
 
-Hook trigger: the decision hook writes to `~/.claude/decisions/decisions.csv`:
-```
-timestamp,repo,decision,why,alternatives_considered
-```
+## When Making a Non-Obvious Decision
 
-To query: `grep <topic> ~/.claude/decisions/decisions.csv`
+Record it immediately. A non-obvious decision is: architecture choice, library selection, pattern override, significant tradeoff.
 
-This answers "why is X the way it is?" without manual archaeology.
+How to record:
+- Use the decision hook — it writes to `~/.claude/decisions/decisions.csv`:
+  ```
+  timestamp,repo,decision,why,alternatives_considered
+  ```
+- For project-scoped decisions: use `mcp__serena__write_memory`
 
-## Session Context Restoration
+## Before Ending a Session
 
-Before ending work: write `~/.claude/handoff/session-handoff.md` with:
-- What was done this session
+Write `~/.claude/handoff/session-handoff.md` with:
+- What was done
 - Current state (branch, open PRs, blockers)
 - What to do next
 
-At start of new session on same work: read this file first.
+## When Asked "Why Is X the Way It Is?"
 
-## Serena Memories (project-scoped)
+Query: `grep <topic> ~/.claude/decisions/decisions.csv`
 
-For architectural decisions and patterns that apply to this project:
-- `write_memory` — save key decisions, patterns, gotchas
-- `list_memories` then `read_memory` for relevant ones at session start
+## Serena vs decisions.csv
 
-Prefer Serena memories for things that are specific to this codebase.
-Prefer decisions.csv for cross-repo or "why" questions.
+| Use | When |
+|-----|------|
+| Serena `write_memory` | Project-specific: patterns, gotchas, architecture decisions |
+| decisions.csv | Cross-repo or "why" questions |

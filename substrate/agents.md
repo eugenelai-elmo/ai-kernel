@@ -1,17 +1,17 @@
 <!-- substrate/agents.md -->
 # Agent Coordination
 
-## When to use subagents
+## Should I Use a Subagent? (Decision Gate)
 
-Use a subagent when:
-- The task is independent (doesn't share state with current work)
-- The task would pollute the current context window (research, large reads)
-- You need parallelism (2+ independent tasks)
+```
+Is the task independent (no shared state with current work)?
+  NO → do it yourself
+  YES → would it pollute my context window (large reads, research)?
+    NO → do it yourself (single tool call overhead isn't worth it)
+    YES → use a subagent
+```
 
-Do NOT use a subagent when:
-- You need the result immediately to continue
-- The task is a single tool call
-- Spawning overhead exceeds the benefit
+Also: use a subagent when you need 2+ tasks done in parallel.
 
 ## Git worktrees for isolation
 
